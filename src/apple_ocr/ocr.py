@@ -250,24 +250,15 @@ class OCR:
         x = [x for (x, y, w, h) in bbox]
         y = [y for (x, y, w, h) in bbox]
 
-        # Calculate text density using NumPy
-        text_areas = np.array(w) * np.array(h)
-        total_area = 1 * 1
-        densities = text_areas / total_area
-
-        # Calculate centroids
-        cx = np.array(x) + np.array(w) / 2
-        cy = np.array(y) + np.array(h) / 2
-
+        
         self.dataframe = {
             "Content": content,
             "Confidence": confidences,
-            "Length": w,
-            "Density": densities,
             "x": x,
             "y": y,
-            "Centroid x": cx,
-            "Centroid y": cy
+            "w": w,
+            "h": h
+
         }
 
         return self.dataframe
