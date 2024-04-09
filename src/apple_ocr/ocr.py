@@ -261,6 +261,7 @@ class OCR:
 
         self.dataframe = {
             "Content": content,
+            "Confidence": confidences,
             "Length": w,
             "Density": densities,
             "x": x,
